@@ -7,6 +7,7 @@ import Html.Attributes exposing (..)
 import String
 
 
+main : Program Never
 main =
     App.beginnerProgram { model = model, view = view, update = update }
 
@@ -21,6 +22,7 @@ type alias Model =
     }
 
 
+cities : List String
 cities =
     [ "Warsaw"
     , "Washington"
