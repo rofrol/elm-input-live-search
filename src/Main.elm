@@ -50,7 +50,7 @@ update msg model =
         Change newSearch ->
             let
                 newSearchTrimmed =
-                    String.trim newSearch
+                    String.toLower <| String.trim newSearch
 
                 citiesWhenSearchEmpty =
                     if newSearchTrimmed == "" then
@@ -58,7 +58,7 @@ update msg model =
                     else
                         cities
             in
-                { model | search = newSearch, searchedCities = List.filter (String.startsWith newSearchTrimmed) citiesWhenSearchEmpty }
+                { model | search = newSearch, searchedCities = List.filter (\s -> String.startsWith newSearchTrimmed (String.toLower s)) citiesWhenSearchEmpty }
 
 
 
